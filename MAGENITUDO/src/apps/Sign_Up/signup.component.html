@@ -1,0 +1,89 @@
+
+  <div style="border-radius: 30px;width: 550px;" class=" bg-white shadow blue-text  mt-5 mb-5 mx-auto p-5 text-center border border-1">
+        <div>
+    <img src="../../assets/mlogo.png" alt="logo">
+             
+        </div>
+<form #a="ngForm" (ngSubmit)="a.form.valid && onSubmit(userSignup)"style="color: darkblue;">
+    <h1>Magnitudo Technologies</h1>
+    <h3>Sign up</h3>
+    <div class="d-flex w-ful">
+        <label for="phno" class="w-25" >Phone number</label>
+       <input type="text" class="form-control w-75" name="phone" [(ngModel)]="userSignup.phone" #phone="ngModel" id="phno" required>
+    </div>
+    <span class="text-danger d-block" *ngIf="this.Sub&&phone.errors?.['required']">
+        Phone number is required
+     </span>
+    <div class="w-100 text-end">
+        <a href="#" class="text-end">Send OTP</a>
+    </div>
+    <div class="d-flex w-ful">
+        <label for="otp" class="w-25">Enter OTP</label>
+    <input type="text" class="form-control w-75" name="otp" [(ngModel)]="userSignup.otp"#otp="ngModel"  id="OTP" required >
+    </div>
+    <span class="text-danger d-block" *ngIf="this.Sub&&otp.errors?.['required']">
+        OTP is required
+     </span><br>
+    <div class="d-flex w-ful">
+        <label for="pass" class="w-25">Password</label>
+    <input type="number" class="form-control w-75" name="password"  [(ngModel)]="userSignup.password" #password="ngModel" id="pass" required >
+    </div>
+    <span class="text-danger d-block" *ngIf="this.Sub&&password.errors?.['required']">
+        Password is required
+      </span><br>
+    <div class="d-flex w-ful">
+        <label for="Email" class="w-25">Email address</label>
+    <input type="email" class="form-control w-75" name="email"  [(ngModel)]="userSignup.email " #email="ngModel" id="mail" required>
+    </div> 
+    <span class="text-danger d-block" *ngIf="this.Sub&&email.errors?.['required']">
+        Email is required
+     </span><br>
+ <div class="d-flex w-ful">
+    <label for="name">Name</label>&nbsp;&nbsp;
+    <select name="" id="title"class="col-md-3">
+        <option >title</option>
+        <option>Mr</option>
+        <option>Mrs</option>
+        <option>Miss</option>
+      </select>&nbsp;&nbsp;
+     <input type="text"class="form-control w-75" name="Name" [(ngModel)]="userSignup.Name" #Name="ngModel"  id="name"required ><br>
+ </div>
+ <span class="text-danger d-block" *ngIf="this.Sub&&Name.errors?.['required']">
+    Name is required
+ </span><br>
+ <div class="d-flex w-ful">
+    <label for="aphno" class="w-25">Alternate Phone number</label>
+<input type="moblie" class="form-control w-75" name="alterphone" [(ngModel)]="userSignup.alterphone"#alterphone="ngModel"  id="aphno" required>
+</div>
+<span class="text-danger d-block" *ngIf="this.Sub&&alterphone.errors?.['required']">
+    Alter Phone Number is required
+ </span><br>
+<div class="d-flex w-ful">
+    <label for="a1" class="w-25">Address Line 1</label>
+<input type="text" class="form-control w-75" name="address1" [(ngModel)]="userSignup.address1" #address1="ngModel" id="add1"required>
+</div>
+<span class="text-danger d-block" *ngIf="this.Sub&&address1.errors?.['required']">
+    Address1 is required
+ </span><br>
+<div class="d-flex w-ful">
+    <label for="a2" class="w-25">Address Line 2</label>
+<input type="text" class="form-control w-75" name="address2" [(ngModel)]="userSignup.address2"#address2="ngModel"  id="add2"required>
+</div>
+<span class="text-danger" *ngIf="this.Sub&&address2.errors?.['required']">
+    Address2 is required
+ </span><br>
+<div class="d-flex w-ful">
+    <label for="a3" class="w-25">Address Line 3</label>
+<input type="text" class="form-control w-75" name="address3" [(ngModel)]="userSignup.address3" #address3="ngModel" id="add3"required >
+</div>
+<span class="text-danger" *ngIf="this.Sub&&address3.errors?.['required']">
+    Address3 is required
+ </span><br>
+
+<div class="text-center">
+    <button class="btn btn-success" type="submit" (click)="Sub=true">Submit</button>&nbsp;
+    <button class="btn btn-danger" type="button">Cancel</button>
+</div>
+</form>
+</div>
+
