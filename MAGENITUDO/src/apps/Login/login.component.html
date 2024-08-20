@@ -1,0 +1,42 @@
+
+<div style="border-radius: 30px; width: 550px;" class="bg-white shadow mt-5 mb-5 mx-auto p-5 text-center border border-1">
+    <div>
+        <img src="../../assets/mlogo.png" alt="logo">
+    </div>
+    <h1 style="color: darkblue;">Magnitudo Technologies</h1>
+    <h3 style="color: darkblue;">Login</h3>
+    
+    <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(userLogin)" style="color: darkblue;" novalidate>
+        <div >
+            <label for="phno">Enter Your phone number</label>
+            <input type="text" class="form-control w-50 mx-auto mt-2" [(ngModel)]="userLogin.phone" name="phone" #name="ngModel" id="phno" required>
+            <p class="text-danger" *ngIf="this.Sub&&name.errors?.['required']">
+                Phone is required
+            </p>
+        </div>
+        
+        <div>
+            <label for="pass">Enter Password</label>
+            <input type="password" class="form-control w-50 mx-auto" [(ngModel)]="userLogin.password"#password="ngModel"  name="password" id="pass" required>
+            <span class="text-danger" *ngIf="this.Sub&&password.errors?.['required']">
+                Password is required
+             </span>
+        </div>
+        <div class="w-100 text-end">
+            <a href="#" class="text-end">Send OTP</a>
+        </div>
+        <div>
+        <label for="otp">Enter OTP</label>
+        <input type="text" class="form-control w-50 mx-auto" name="otp"[(ngModel)]="userLogin.otp" id="otp" #otp="ngModel" required>
+        <span class="text-danger" *ngIf="this.Sub&&otp.errors?.['required']">
+            OTP is required
+         </span>
+        </div><br>
+        <div class="text-center">
+            <button class="btn btn-success" type="submit" (click)="Sub=true">GO</button>&nbsp;
+            <button class="btn btn-danger" type="button">Cancel</button>
+        </div>
+    </form>
+    <a href="/sign-up">New User!</a>
+  </div>
+  
